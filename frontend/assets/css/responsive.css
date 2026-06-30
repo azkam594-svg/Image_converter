@@ -1,0 +1,166 @@
+/*
+ * Responsive CSS (responsive.css)
+ * Media queries for Laptop, Tablet, and Mobile devices
+ * Theme: Clean Minimalism
+ */
+
+/* ==========================================================================
+   LAPTOPS (Up to 1024px)
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .hero-title {
+    font-size: 3rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .features-grid {
+    gap: var(--space-md);
+  }
+}
+
+/* ==========================================================================
+   TABLETS (Up to 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+  /* Navigation */
+  .mobile-menu-toggle {
+    display: block; /* Show menu toggle */
+  }
+
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background-color: var(--card);
+    border-bottom: 1px solid var(--border);
+    padding: var(--space-md) var(--space-lg);
+    box-shadow: var(--shadow-lg);
+    transition: opacity var(--transition-normal);
+  }
+
+  .nav-menu.active {
+    display: block;
+    animation: fadeIn var(--transition-fast) forwards;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    gap: 1.25rem;
+    align-items: flex-start;
+  }
+
+  .nav-link {
+    width: 100%;
+    display: block;
+    font-size: 1.05rem;
+  }
+
+  /* Hero Section */
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+    text-align: center;
+  }
+
+  .hero-subtitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-visual-card {
+    transform: none; /* Flatten rotating card on smaller screen */
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  /* Features */
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  /* Converter Workspace layout */
+  .converter-layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .preview-card {
+    min-height: auto;
+  }
+
+  /* Footer */
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .footer-desc {
+    max-width: 100%;
+  }
+
+  .footer-links-group {
+    gap: var(--space-md);
+  }
+}
+
+/* ==========================================================================
+   MOBILE DEVICES (Up to 480px)
+   ========================================================================== */
+@media (max-width: 480px) {
+  :root {
+    --radius: 14px; /* Slightly tighter border radius for very small screens */
+  }
+
+  .container {
+    padding: 0 var(--space-sm);
+  }
+
+  .hero-title {
+    font-size: 2.25rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+  }
+
+  .feature-card {
+    padding: 1.5rem;
+  }
+
+  .image-meta-info {
+    grid-template-columns: 1fr;
+    gap: var(--space-xs);
+  }
+
+  .footer-links-group {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .footer-bottom-container {
+    flex-direction: column;
+    gap: var(--space-sm);
+    text-align: center;
+  }
+}

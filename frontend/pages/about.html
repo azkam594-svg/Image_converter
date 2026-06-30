@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - Premium Image Converter</title>
+    <!-- Google Font: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: var(--space-xl);
+        margin-top: var(--space-lg);
+      }
+      .tech-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background-color: var(--bg);
+        border: 1px solid var(--border);
+        padding: 0.4rem 0.8rem;
+        border-radius: 8px;
+        font-size: 0.85rem;
+        font-weight: 500;
+        margin-right: 6px;
+        margin-bottom: 8px;
+      }
+      .roadmap-step {
+        display: flex;
+        gap: var(--space-sm);
+        position: relative;
+        padding-bottom: var(--space-md);
+      }
+      .roadmap-step::before {
+        content: '';
+        position: absolute;
+        left: 15px;
+        top: 30px;
+        bottom: 0;
+        width: 2px;
+        background-color: var(--border);
+      }
+      .roadmap-step:last-child::before {
+        display: none;
+      }
+      .roadmap-dot {
+        width: 32px;
+        height: 32px;
+        background-color: rgba(37, 99, 235, 0.08);
+        border: 2px solid var(--primary);
+        color: var(--primary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        z-index: 10;
+        font-size: 0.8rem;
+        font-weight: bold;
+      }
+      @media (max-width: 768px) {
+        .about-grid {
+          grid-template-columns: 1fr;
+          gap: var(--space-lg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <header class="navbar-header" id="navbar-header">
+      <div class="container navbar-container">
+        <a href="../index.html" class="logo" id="logo-link">
+          <i data-lucide="image-down" class="logo-icon"></i>
+          <span class="logo-text">Image<span class="logo-text-accent">Converter</span></span>
+        </a>
+        
+        <!-- Navigation Links -->
+        <nav class="nav-menu" id="nav-menu">
+          <ul class="nav-list" id="main-nav">
+            <li class="nav-item"><a href="../index.html" class="nav-link" id="nav-home">Home</a></li>
+            <li class="nav-item"><a href="image.html" class="nav-link" id="nav-converter">Image Converter</a></li>
+            <li class="nav-item"><a href="about.html" class="nav-link active" id="nav-about">About</a></li>
+            <li class="nav-item"><a href="contact.html" class="nav-link" id="nav-contact">Contact</a></li>
+          </ul>
+        </nav>
+        
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+          <i data-lucide="menu" id="menu-icon"></i>
+        </button>
+      </div>
+    </header>
+
+    <main class="container animate-fade-in" style="padding: 4rem var(--space-md);">
+      <div style="max-width: 800px; margin: 0 auto;">
+        
+        <!-- Hero Part -->
+        <div class="mb-lg" style="text-align: center;">
+          <div class="badge">
+            <i data-lucide="info" class="badge-icon"></i>
+            <span>Our Technology</span>
+          </div>
+          <h1 class="gradient-text" style="font-size: 3rem; margin-bottom: var(--space-xs);">About Image Converter</h1>
+          <p class="text-secondary" style="font-size: 1.15rem;">Discover how we deliver enterprise-grade performance, absolute security, and fluid user experiences.</p>
+        </div>
+
+        <div class="about-grid">
+          <!-- Left Main Column: Detailed Explanation -->
+          <div>
+            <!-- Section 1: Overview -->
+            <section class="card mb-md p-lg">
+              <h3 class="mb-sm" style="display: flex; align-items: center; gap: 8px;">
+                <i data-lucide="sparkles" class="text-primary" style="width: 20px; height: 20px;"></i>
+                <span>What is Image Converter?</span>
+              </h3>
+              <p class="mb-sm">
+                Image Converter is a premium online graphic utility designed to enable lightning-fast image conversions without compromising file fidelity, pixel accuracy, or data privacy.
+              </p>
+              <p>
+                Unlike generic online tools that upload your files to remote cloud networks where they could be logged, processed, or leaked, Image Converter is built to keep all initial image load and scaling logic within the bounds of standard local protocols.
+              </p>
+            </section>
+
+            <!-- Section 2: Technology Stack -->
+            <section class="card mb-md p-lg">
+              <h3 class="mb-sm" style="display: flex; align-items: center; gap: 8px;">
+                <i data-lucide="cpu" class="text-primary" style="width: 20px; height: 20px;"></i>
+                <span>The Architecture Stack</span>
+              </h3>
+              
+              <h4 class="mb-xs" style="font-size: 1rem; font-weight: 600; color: var(--text);">Client Frontend</h4>
+              <p class="mb-sm">
+                Built strictly with light, frameworkless, pure-standard web APIs to ensure instantaneous page loads, predictable state loops, and fluid animation steps.
+              </p>
+              <div class="mb-md">
+                <span class="tech-badge">HTML5 Semantic Canvas</span>
+                <span class="tech-badge">Vanilla CSS3 (Custom Variables)</span>
+                <span class="tech-badge">Vanilla ES6 JavaScript</span>
+                <span class="tech-badge">Lucide SVG Vectors</span>
+              </div>
+
+              <h4 class="mb-xs" style="font-size: 1rem; font-weight: 600; color: var(--text);">Enterprise Backend API</h4>
+              <p class="mb-sm">
+                Designed to integrate seamlessly with a secure, highly scalable Python backend. File compression and pixel translations are executed using robust libraries.
+              </p>
+              <div>
+                <span class="tech-badge">FastAPI (Python REST)</span>
+                <span class="tech-badge">Pillow (PIL Engine)</span>
+                <span class="tech-badge">Uvicorn Server</span>
+                <span class="tech-badge">Stream Processing</span>
+              </div>
+            </section>
+          </div>
+
+          <!-- Right Column: Roadmap -->
+          <div>
+            <section class="card p-lg" id="roadmap">
+              <h3 class="mb-md" style="display: flex; align-items: center; gap: 8px;">
+                <i data-lucide="compass" class="text-primary" style="width: 20px; height: 20px;"></i>
+                <span>Project Roadmap</span>
+              </h3>
+
+              <div class="roadmap-step">
+                <div class="roadmap-dot">1</div>
+                <div>
+                  <h4 style="font-size: 0.95rem; font-weight: 600;">Standard Engine</h4>
+                  <p style="font-size: 0.85rem;">Single-file converter with resolution presets, maintain-ratio algorithms, and format transpilations.</p>
+                </div>
+              </div>
+
+              <div class="roadmap-step">
+                <div class="roadmap-dot">2</div>
+                <div>
+                  <h4 style="font-size: 0.95rem; font-weight: 600;">FastAPI Integration</h4>
+                  <p style="font-size: 0.85rem;">Connecting standard client fetch pipelines directly to Python-Pillow stream conversion APIs.</p>
+                </div>
+              </div>
+
+              <div class="roadmap-step">
+                <div class="roadmap-dot">3</div>
+                <div>
+                  <h4 style="font-size: 0.95rem; font-weight: 600;">Batch Processing</h4>
+                  <p style="font-size: 0.85rem;">Parallel multithread uploads to convert multiple images or folder contents concurrently.</p>
+                </div>
+              </div>
+
+              <div class="roadmap-step">
+                <div class="roadmap-dot">4</div>
+                <div>
+                  <h4 style="font-size: 0.95rem; font-weight: 600;">Smart Vector Tracing</h4>
+                  <p style="font-size: 0.85rem;">Using machine learning clusters to convert standard pixel grids (PNG/JPG) into scalable Vector graphics (SVG/EPS).</p>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <!-- Modern Footer -->
+    <footer class="footer" id="main-footer">
+      <div class="container footer-container">
+        <div class="footer-brand">
+          <a href="../index.html" class="logo logo-footer" id="footer-logo">
+            <i data-lucide="image-down" class="logo-icon"></i>
+            <span class="logo-text">Image<span class="logo-text-accent">Converter</span></span>
+          </a>
+          <p class="footer-desc">
+            A premium, high-fidelity browser utility for developers, designers, and creators. Convert and optimize images instantly.
+          </p>
+        </div>
+        
+        <div class="footer-links-group">
+          <div class="footer-column">
+            <h4 class="footer-title">Product</h4>
+            <ul class="footer-links">
+              <li><a href="image.html">Image Converter</a></li>
+              <li><a href="../index.html#features-section">Features</a></li>
+              <li><a href="#roadmap">Roadmap</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4 class="footer-title">Company</h4>
+            <ul class="footer-links">
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="contact.html">Contact Support</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="container footer-bottom-container">
+          <p class="copyright-text">&copy; 2026 Image Converter. All rights reserved.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Twitter"><i data-lucide="twitter"></i></a>
+            <a href="#" aria-label="GitHub"><i data-lucide="github"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Initialize Lucide Icons -->
+    <script>
+      lucide.createIcons();
+
+      // Simple Mobile Menu Toggle
+      const mobileToggle = document.getElementById('mobile-menu-toggle');
+      const navMenu = document.getElementById('nav-menu');
+      const menuIcon = document.getElementById('menu-icon');
+
+      if (mobileToggle && navMenu) {
+        mobileToggle.addEventListener('click', () => {
+          navMenu.classList.toggle('active');
+          const isOpened = navMenu.classList.contains('active');
+          if (isOpened) {
+            menuIcon.setAttribute('data-lucide', 'x');
+          } else {
+            menuIcon.setAttribute('data-lucide', 'menu');
+          }
+          lucide.createIcons();
+        });
+      }
+    </script>
+  </body>
+</html>

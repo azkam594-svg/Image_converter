@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Converter - Premium Online Image Conversion Tool</title>
+    <!-- Google Font: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <header class="navbar-header" id="navbar-header">
+      <div class="container navbar-container">
+        <a href="index.html" class="logo" id="logo-link">
+          <i data-lucide="image-down" class="logo-icon"></i>
+          <span class="logo-text">Image<span class="logo-text-accent">Converter</span></span>
+        </a>
+        
+        <!-- Navigation Links -->
+        <nav class="nav-menu" id="nav-menu">
+          <ul class="nav-list" id="main-nav">
+            <li class="nav-item"><a href="index.html" class="nav-link active" id="nav-home">Home</a></li>
+            <li class="nav-item"><a href="pages/image.html" class="nav-link" id="nav-converter">Image Converter</a></li>
+            <li class="nav-item"><a href="pages/about.html" class="nav-link" id="nav-about">About</a></li>
+            <li class="nav-item"><a href="pages/contact.html" class="nav-link" id="nav-contact">Contact</a></li>
+          </ul>
+        </nav>
+        
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+          <i data-lucide="menu" id="menu-icon"></i>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="hero-section" id="hero-section">
+        <div class="container hero-container">
+          <div class="hero-content animate-fade-in">
+            <div class="badge" id="hero-badge">
+              <i data-lucide="sparkles" class="badge-icon"></i>
+              <span>100% Free & Unlimited</span>
+            </div>
+            <h1 class="hero-title" id="hero-title">
+              Professional Grade <br>
+              <span class="gradient-text">Image Converter</span>
+            </h1>
+            <p class="hero-subtitle" id="hero-subtitle">
+              Convert JPG, PNG, WEBP, BMP, TIFF and GIF in seconds with high quality. No sign-up required, fully secure, and lightning-fast.
+            </p>
+            <div class="hero-actions">
+              <a href="pages/image.html" class="btn btn-primary btn-lg" id="btn-get-started">
+                <span>Get Started</span>
+                <i data-lucide="arrow-right" class="btn-icon"></i>
+              </a>
+              <a href="#features-section" class="btn btn-secondary btn-lg" id="btn-learn-more">
+                <span>Learn More</span>
+              </a>
+            </div>
+          </div>
+          
+          <!-- Visual Hero Banner / Preview Mockup -->
+          <div class="hero-visual-wrapper animate-fade-in" id="hero-visual">
+            <div class="hero-visual-card">
+              <div class="card-header-bar">
+                <div class="window-dots">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                </div>
+                <div class="window-title">image-converter-dashboard</div>
+              </div>
+              <div class="card-visual-content">
+                <div class="visual-upload-placeholder">
+                  <i data-lucide="cloud-upload" class="visual-upload-icon"></i>
+                  <p class="visual-upload-text">Drag & drop your images here</p>
+                  <span class="visual-upload-btn">Browse Files</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Feature Section -->
+      <section class="features-section" id="features-section">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title" id="features-title">Why Choose Our Converter?</h2>
+            <p class="section-subtitle">We combine absolute simplicity with pro-level conversion parameters.</p>
+          </div>
+          
+          <div class="features-grid" id="features-grid">
+            <!-- Feature 1: Fast -->
+            <div class="feature-card" id="feature-fast">
+              <div class="feature-icon-wrapper fast">
+                <i data-lucide="zap" class="feature-icon"></i>
+              </div>
+              <h3 class="feature-card-title">Lightning Fast</h3>
+              <p class="feature-card-desc">
+                Convert your images in milliseconds directly in your browser. No queues, no server lag.
+              </p>
+            </div>
+            
+            <!-- Feature 2: Secure -->
+            <div class="feature-card" id="feature-secure">
+              <div class="feature-icon-wrapper secure">
+                <i data-lucide="shield-check" class="feature-icon"></i>
+              </div>
+              <h3 class="feature-card-title">100% Secure</h3>
+              <p class="feature-card-desc">
+                Your images stay fully secure. All operations are kept isolated and handled locally with standard protocols.
+              </p>
+            </div>
+            
+            <!-- Feature 3: High Quality -->
+            <div class="feature-card" id="feature-quality">
+              <div class="feature-icon-wrapper quality">
+                <i data-lucide="award" class="feature-icon"></i>
+              </div>
+              <h3 class="feature-card-title">High Quality</h3>
+              <p class="feature-card-desc">
+                Fine-tune target image format, dimensions, ratio, and export quality with zero compression artifacts.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Modern Footer -->
+    <footer class="footer" id="main-footer">
+      <div class="container footer-container">
+        <div class="footer-brand">
+          <a href="index.html" class="logo logo-footer" id="footer-logo">
+            <i data-lucide="image-down" class="logo-icon"></i>
+            <span class="logo-text">Image<span class="logo-text-accent">Converter</span></span>
+          </a>
+          <p class="footer-desc">
+            A premium, high-fidelity browser utility for developers, designers, and creators. Convert and optimize images instantly.
+          </p>
+        </div>
+        
+        <div class="footer-links-group">
+          <div class="footer-column">
+            <h4 class="footer-title">Product</h4>
+            <ul class="footer-links">
+              <li><a href="pages/image.html">Image Converter</a></li>
+              <li><a href="#features-section">Features</a></li>
+              <li><a href="pages/about.html#roadmap">Roadmap</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4 class="footer-title">Company</h4>
+            <ul class="footer-links">
+              <li><a href="pages/about.html">About Us</a></li>
+              <li><a href="pages/contact.html">Contact Support</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="container footer-bottom-container">
+          <p class="copyright-text">&copy; 2026 Image Converter. All rights reserved.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Twitter"><i data-lucide="twitter"></i></a>
+            <a href="#" aria-label="GitHub"><i data-lucide="github"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Initialize Lucide Icons -->
+    <script>
+      lucide.createIcons();
+
+      // Simple Mobile Menu Toggle
+      const mobileToggle = document.getElementById('mobile-menu-toggle');
+      const navMenu = document.getElementById('nav-menu');
+      const menuIcon = document.getElementById('menu-icon');
+
+      if (mobileToggle && navMenu) {
+        mobileToggle.addEventListener('click', () => {
+          navMenu.classList.toggle('active');
+          const isOpened = navMenu.classList.contains('active');
+          if (isOpened) {
+            menuIcon.setAttribute('data-lucide', 'x');
+          } else {
+            menuIcon.setAttribute('data-lucide', 'menu');
+          }
+          lucide.createIcons();
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Convert Image - Premium Image Converter</title>
+    <!-- Google Font: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <header class="navbar-header" id="navbar-header">
+      <div class="container navbar-container">
+        <a href="../index.html" class="logo" id="logo-link">
+          <i data-lucide="image-down" class="logo-icon"></i>
+          <span class="logo-text">Image<span class="logo-text-accent">Converter</span></span>
+        </a>
+        
+        <!-- Navigation Links -->
+        <nav class="nav-menu" id="nav-menu">
+          <ul class="nav-list" id="main-nav">
+            <li class="nav-item"><a href="../index.html" class="nav-link" id="nav-home">Home</a></li>
+            <li class="nav-item"><a href="image.html" class="nav-link active" id="nav-converter">Image Converter</a></li>
+            <li class="nav-item"><a href="about.html" class="nav-link" id="nav-about">About</a></li>
+            <li class="nav-item"><a href="contact.html" class="nav-link" id="nav-contact">Contact</a></li>
+          </ul>
+        </nav>
+        
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+          <i data-lucide="menu" id="menu-icon"></i>
+        </button>
+      </div>
+    </header>
+
+    <main class="container animate-fade-in" style="padding: 3rem var(--space-md);">
+      <!-- Page Header -->
+      <div class="mb-lg" style="text-align: center; max-width: 600px; margin-left: auto; margin-right: auto;">
+        <h1 class="gradient-text" style="font-size: 2.5rem; margin-bottom: var(--space-xs);" id="converter-page-title">Image Conversion Workspace</h1>
+        <p class="text-secondary" id="converter-page-desc">Upload, configure parameters, and convert your graphics instantly and privately in your browser.</p>
+      </div>
+
+      <!-- Main Workspace Section -->
+      <section class="converter-workspace" id="converter-workspace">
+        
+        <!-- Dropzone (Shown when no image is loaded) -->
+        <div class="upload-dropzone" id="upload-dropzone">
+          <i data-lucide="cloud-upload" class="upload-icon"></i>
+          <p id="dropzone-text">Drag & drop your image here, or <span style="color: var(--primary); font-weight: 600;">browse files</span></p>
+          <span>Supports PNG, JPG, WEBP, BMP, GIF, and TIFF up to 25MB</span>
+          <input type="file" id="file-input" accept="image/*" style="display: none;" />
+        </div>
+
+        <!-- Converter Layout (Shown when image is uploaded) -->
+        <div class="converter-layout" id="converter-layout" style="display: none;">
+          
+          <!-- LEFT COLUMN: Preview Card -->
+          <div class="card preview-card" id="preview-panel">
+            <div>
+              <h3 class="mb-md" style="font-size: 1.15rem; display: flex; align-items: center; gap: 8px;">
+                <i data-lucide="eye" style="width: 20px; height: 20px; color: var(--primary);"></i>
+                <span>Image Preview</span>
+              </h3>
+              
+              <div class="preview-stage" id="preview-stage">
+                <!-- Large Image Preview -->
+                <img id="image-preview" src="" alt="Image preview" class="preview-image" style="display: none;" />
+                <div class="preview-empty-state" id="preview-empty">
+                  <i data-lucide="image" class="preview-empty-icon"></i>
+                  <p class="text-secondary">Loading image preview...</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Image Metadata Info Bar -->
+            <div class="image-meta-info" id="image-meta-info">
+              <div class="meta-item">
+                <span class="meta-label">File Name</span>
+                <span class="meta-value" id="meta-name">-</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Original Size</span>
+                <span class="meta-value" id="meta-size">-</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Resolution</span>
+                <span class="meta-value" id="meta-resolution">-</span>
+              </div>
+            </div>
+            
+            <button class="btn btn-secondary w-full mt-md" id="btn-change-image" style="margin-top: 1.25rem;">
+              <i data-lucide="refresh-cw" class="btn-icon"></i>
+              <span>Choose Another Image</span>
+            </button>
+          </div>
+
+          <!-- RIGHT COLUMN: Converter Controls Card -->
+          <div class="card" id="control-panel">
+            <h3 class="mb-md" style="font-size: 1.15rem; display: flex; align-items: center; gap: 8px;">
+              <i data-lucide="sliders" style="width: 20px; height: 20px; color: var(--primary);"></i>
+              <span>Conversion Settings</span>
+            </h3>
+
+            <!-- Convert To Selection Dropdown -->
+            <div class="form-group">
+              <label class="form-label" for="target-format">Convert To</label>
+              <select class="form-control" id="target-format">
+                <option value="png" selected>PNG (.png)</option>
+                <option value="jpeg">JPG / JPEG (.jpg)</option>
+                <option value="webp">WEBP (.webp)</option>
+                <option value="bmp">BMP (.bmp)</option>
+                <option value="gif">GIF (.gif)</option>
+                <option value="tiff">TIFF (.tiff)</option>
+              </select>
+            </div>
+
+            <!-- Quality Slider (Only applicable to WebP/JPG/etc) -->
+            <div class="form-group" id="quality-group">
+              <label class="form-label" for="quality-range">Output Quality</label>
+              <div class="slider-container">
+                <input type="range" id="quality-range" class="slider-control" min="10" max="100" value="90" />
+                <span class="slider-value" id="quality-val">90%</span>
+              </div>
+            </div>
+
+            <!-- Resize Section -->
+            <div class="form-group">
+              <label class="form-label">Dimensions (Resize)</label>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-sm); margin-bottom: var(--space-xs);">
+                <div>
+                  <label class="form-label" style="font-size: 0.75rem; color: var(--text-secondary);" for="resize-width">Width (px)</label>
+                  <input type="number" id="resize-width" class="form-control" placeholder="Original" />
+                </div>
+                <div>
+                  <label class="form-label" style="font-size: 0.75rem; color: var(--text-secondary);" for="resize-height">Height (px)</label>
+                  <input type="number" id="resize-height" class="form-control" placeholder="Original" />
+                </div>
+              </div>
+              
+              <!-- Maintain Aspect Ratio Checkbox -->
+              <label class="checkbox-container" id="ratio-checkbox-label">
+                <input type="checkbox" id="maintain-ratio" class="checkbox-control" checked />
+                <span style="font-size: 0.85rem; font-weight: 500; color: var(--text-secondary);">Maintain original aspect ratio</span>
+              </label>
+            </div>
+
+            <!-- Convert Action Button -->
+            <button class="btn btn-primary w-full btn-lg mt-md" id="btn-convert" style="margin-top: 1.5rem;">
+              <i data-lucide="repeat" class="btn-icon"></i>
+              <span>Convert Image</span>
+            </button>
+
+            <!-- Progress Tracker Section -->
+            <div class="progress-container" id="progress-container">
+              <div class="progress-header">
+                <span class="progress-title" id="progress-status">Processing conversion...</span>
+                <span class="progress-percent" id="progress-percent">0%</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill" id="progress-fill"></div>
+              </div>
+            </div>
+
+            <!-- Download Action Area -->
+            <div class="download-card" id="download-card">
+              <div class="download-info">
+                <div class="download-icon-wrapper">
+                  <i data-lucide="check" style="width: 20px; height: 20px;"></i>
+                </div>
+                <div>
+                  <div class="download-text-main">Conversion Complete</div>
+                  <div class="download-text-sub" id="download-meta-text">Ready for download</div>
+                </div>
+              </div>
+              <button class="btn btn-primary btn-sm" id="btn-download" style="padding: 0.5rem 1.25rem; font-size: 0.85rem;">
+                <i data-lucide="download" class="btn-icon" style="width: 14px; height: 14px;"></i>
+                <span>Download</span>
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+    </main>
+
+    <!-- Toasts Stack Area -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- Modern Footer -->
+    <footer class="footer" id="main-footer">
+      <div class="container footer-container">
+        <div class="footer-brand">
+          <a href="../index.html" class="logo logo-footer" id="footer-logo">
+            <i data-lucide="image-down" class="logo-icon"></i>
+            <span class="logo-text">Image<span class="logo-text-accent">Converter</span></span>
+          </a>
+          <p class="footer-desc">
+            A premium, high-fidelity browser utility for developers, designers, and creators. Convert and optimize images instantly.
+          </p>
+        </div>
+        
+        <div class="footer-links-group">
+          <div class="footer-column">
+            <h4 class="footer-title">Product</h4>
+            <ul class="footer-links">
+              <li><a href="image.html">Image Converter</a></li>
+              <li><a href="../index.html#features-section">Features</a></li>
+              <li><a href="about.html#roadmap">Roadmap</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4 class="footer-title">Company</h4>
+            <ul class="footer-links">
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="contact.html">Contact Support</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="container footer-bottom-container">
+          <p class="copyright-text">&copy; 2026 Image Converter. All rights reserved.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Twitter"><i data-lucide="twitter"></i></a>
+            <a href="#" aria-label="GitHub"><i data-lucide="github"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Initialize Lucide Icons -->
+    <script>
+      lucide.createIcons();
+
+      // Simple Mobile Menu Toggle
+      const mobileToggle = document.getElementById('mobile-menu-toggle');
+      const navMenu = document.getElementById('nav-menu');
+      const menuIcon = document.getElementById('menu-icon');
+
+      if (mobileToggle && navMenu) {
+        mobileToggle.addEventListener('click', () => {
+          navMenu.classList.toggle('active');
+          const isOpened = navMenu.classList.contains('active');
+          if (isOpened) {
+            menuIcon.setAttribute('data-lucide', 'x');
+          } else {
+            menuIcon.setAttribute('data-lucide', 'menu');
+          }
+          lucide.createIcons();
+        });
+      }
+    </script>
+
+    <!-- Core Scripts -->
+    <script src="../assets/js/api.js"></script>
+    <script src="../assets/js/ui.js"></script>
+    <script src="../assets/js/upload.js"></script>
+    <script src="../assets/js/converter.js"></script>
+  </body>
+</html>
